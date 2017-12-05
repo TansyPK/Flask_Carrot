@@ -1,0 +1,59 @@
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>照片墙</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Koiphotos_static/css/style.css') }}">
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>The image wall is being generated, please wait... If the page didn't change after one minute, there must be
+        something wrong about your browser, you better try this browser: <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b>.
+    </p>
+</div>
+
+<div id="blue-loader"></div>
+<div id="mask-bg"></div>
+
+<a class="button overview-btn" href="#overview">全景</a>
+<a class="button about-btn" href="{{url_for('photos_api.upload')}}">上传</a>
+<a class="button close-btn" href="{{ url_for('main_api.main_view')}}">
+    <img src="{{ url_for('static', filename='Koiphotos_static/images/close.png') }}" width="30" height="30">
+</a>
+<input class="button" id="full-screen" type="image" src="{{ url_for('static', filename='Koiphotos_static/images/fullscreen.png') }}"
+       width="25" onclick="toggleFullScreen()">
+<input id="up" type="image" src="{{ url_for('static', filename='Koiphotos_static/images/up.png') }}" width="30" height="30">
+<input id="down" type="image" src="{{ url_for('static', filename='Koiphotos_static/images/down.png') }}" width="30" height="30">
+
+<div id="impress">
+    <div id="image-container">
+        {% block page_content %}{% endblock %}
+        <div class="step" id="about" data-x="{{ overview[0] }}" data-y="{{ overview[1] }}" data-z="20000"
+             data-rotate-x="90"
+             data-rotate-z="180">
+            <div class="center-text">
+                <p class="big-text">My Word</p>
+                <hr>
+                <div class="small-text">
+                    <p>Miss you a lot</p>
+                    <br>
+                </div>
+                <br>
+                <a class="shake shake-hard button donate-bt" href="#overview">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='Koiphotos_static/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='Koiphotos_static/js/impress.js') }}"></script>
+<script src="{{ url_for('static', filename='Koiphotos_static/js/imagesloaded.js') }}"></script>
+<script src="{{ url_for('static', filename='Koiphotos_static/js/main.js') }}"></script>
+<script>impress().init();</script>
+
+</body>
+</html>

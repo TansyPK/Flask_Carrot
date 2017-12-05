@@ -1,0 +1,125 @@
+<html lang="zh-CN">
+<head>
+    <title>图片墙生成器</title>
+    <style>
+    body {
+        font-family: Georgia, "Times New Roman",
+         "Microsoft YaHei", STXihei, serif;
+        background: #eee;
+    }
+    
+    .container {
+        padding: 20px;
+        width: auto !important;
+        max-width: 500px !important;
+        margin: 10% auto auto;
+        background: #fff;
+        border-radius: 10px;
+        
+    }
+    #mask-bg {
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1;
+        -moz-opacity: 0.7;
+        opacity: .70;
+        filter: alpha(opacity=70);
+    }
+    
+    .button {
+        background-color: white;
+        color: black;
+        padding: 6px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        -webkit-transition-duration: 0.4s;  /* Safari */
+        transition-duration: 0.4s;
+    }
+    
+    .green-btn {
+        border: 2px solid #4CAF50; /* Green */
+    }
+    
+    .green-btn:hover {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
+    
+    .blue-btn {
+        border: 2px solid #008CBA; /* Blue */
+    }
+    
+    .blue-btn:hover {
+        background-color: #008CBA; /* Blue */
+        color: white;
+    }
+    
+    #green-loader {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #4CAF50;
+        z-index: 2;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+    
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .center-text {
+        text-align: center;
+    }
+    </style>
+
+</head>
+
+
+<body>
+
+<div id="green-loader"></div>
+<div id="mask-bg"></div>
+
+<div class="container">
+    <h1 class="center-text">图片墙生成器</h1>
+        
+    <div style="padding-left: 10%">
+        <form id="form_upload" method="POST" enctype="multipart/form-data">
+            <input class="button blue-btn" type="file" name="photo" id="photo" multiple="multiple">
+            <input class="button green-btn" id="upload" type="submit" value="OK!" onclick="loading()">
+        </form>
+        <ul>
+            <li>允许的图片数量范围：10~100</li>
+            <li>请使用Chrome、Safari、Firefox等现代浏览器</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // display loading animation
+    function loading() {
+        document.getElementById("mask-bg").style.display = 'block';
+        document.getElementById("green-loader").style.display = 'block';
+    };
+</script>
+</body>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask-CKEditor Demo</title>
+    {{ ckeditor.load() }}
+	{{ moment.include_moment() }}
+</head>
+<body>
+	<div class="warpper" style="width: 700px; margin: auto">
+		<h1>Flask-CKEditor Demo</h1>
+		<form method="post">
+			{% if form.title.errors %}
+				{% for error in form.title.errors %}
+				  {{ error }}<br>
+				{% endfor %}
+			{% endif %}
+			{% if form.time.errors %}
+				{% for error in form.time.errors %}
+				  {{ error }}<br>
+				{% endfor %}
+			{% endif %}
+			{% if form.short_body.errors %}
+				{% for error in form.short_body.errors %}
+				  {{ error }}<br>
+				{% endfor %}
+			{% endif %}
+			{% if form.body.errors %}
+				{% for error in form.body.errors %}
+				  {{ error }}<br>
+				{% endfor %}
+			{% endif %}
+			{{ form.csrf_token }}
+			{{ form.title.label }}<br>
+			{{ form.title }}<br><br>
+			{{ form.time.label }}<br>
+			{{ form.time(value=current_time)}}<br><br>
+			{{ form.blog_image.label }}<br>
+			{{ form.blog_image }}<br><br>
+			{{ form.short_body.label }}<br>
+			{{ form.short_body }}<br><br>
+			{{ form.body.label }}<br>
+			{{ form.body }}<br><br>
+			<br><br>
+			{{ form.submit }}
+		</form>
+	</div>
+</body>
+</html>
+

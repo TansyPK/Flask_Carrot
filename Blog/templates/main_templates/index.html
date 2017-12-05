@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+<!-- Home Section -->
+{% block home %}
+<section id="home">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h2>Every-thing will be all right.</h2>
+                    <hr>
+               </div>
+
+          </div>
+     </div>
+</section>
+{% endblock %}
+
+<!-- Portfolio Section -->
+{% block portfolio %}
+<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
+<section id="portfolio">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="{{url_for('blog_api.blog_view',tag_id=0)}}">
+                         <div class="portfolio-thumb">
+                              <img src="{{url_for('static',filename='main_static/images/portfolio-img1.jpg')}}" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>技术</h3>
+                                             <small>Tech change the world</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="{{url_for('diary_api.diary_view')}}">
+                         <div class="portfolio-thumb">
+                              <img src="{{url_for('static',filename='main_static/images/portfolio-img2.jpg')}}" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>日志</h3>
+                                             <small>Happiness or Sadness</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="{{url_for('photos_api.image_wall')}}">
+                         <div class="portfolio-thumb">
+                              <img src="{{url_for('static',filename='main_static/images/portfolio-img3.jpg')}}" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>图册</h3>
+                                             <small>All the memory</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="https://aidn.jp/mikutap/">
+                         <div class="portfolio-thumb">
+                              <img src="{{url_for('static',filename='main_static/images/portfolio-img4.jpg')}}" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>娱乐</h3>
+                                             <small>Enjoy Yourself</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="#">
+                         <div class="portfolio-thumb">
+                              <img src="{{url_for('static',filename='main_static/images/portfolio-img5.jpg')}}" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>敬请期待</h3>
+                                             <small>oops!</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+               <div class="col-md-4 col-sm-6">
+                    <a href="#">
+                         <div class="portfolio-thumb">
+                              <img src="{{url_for('static',filename='main_static/images/portfolio-img6.jpg')}}" class="img-responsive" alt="Portfolio">
+                                   <div class="portfolio-overlay">
+                                        <div class="portfolio-item">
+                                             <h3>敬请期待</h3>
+                                             <small>oops!</small>
+                                        </div>
+                                   </div>
+                         </div>
+                    </a>
+               </div>
+
+          </div>
+     </div>
+</section>
+{% endblock %}

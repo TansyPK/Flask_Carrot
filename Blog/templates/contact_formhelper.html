@@ -1,0 +1,10 @@
+{% macro render_field(field) %}
+<div>{{ field.label(class="sr-only")}}</div>
+<div>{{ field(class="form-control",placeholder = field.id, autocomplete="off") }}
+  {% if field.errors %}
+    {% for error in field.errors %}
+      {{ error }}
+    {% endfor %}
+  {% endif %}
+</div>
+{% endmacro %}

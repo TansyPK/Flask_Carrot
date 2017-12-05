@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+<!-- Blog Section -->
+{% block portfolio %}
+<section id="blog">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="section-title">
+                         <h3>Welcome To KoiCarrot Space</h3>
+                         <h2>Everyone has a secret</h2>
+                    </div>
+                    {% for post in diarys.items %}
+                    <div class="blog-post-thumb">
+                         <div class="blog-post-image">
+                              <a href="{{url_for('diary_api.post_view',post_id=post.id)}}">
+                                   <img src="{{post.blog_image}}" class="img-responsive" alt="Blog Image">
+                              </a>
+                         </div>
+                         <div class="blog-post-title">
+                              <h3><a href="single-post.html">{{post.title}}</a></h3>
+                         </div>
+                         <div class="blog-post-format">
+                              <span><a href="#"><img src="http://oz6fn6yv5.bkt.clouddn.com/Rabbit_Icon.jpg-user_icon" class="img-responsive img-circle">{{post.user.name}}</a></span>
+                              <span><i class="fa fa-date"></i>{{post.time}}</span>
+                         </div>
+                         <div class="blog-post-des">
+                              <p>{{post.short_body}}</p>
+                              <a href="{{url_for('diary_api.post_view',post_id=post.id)}}" class="btn btn-default">Continue Reading</a>
+                         </div>
+                    </div>
+                    {% endfor %}
+               </div>
+          </div>
+          <div class = "col-md-offset-1 col-md-10 col-sm-12">
+               <div class = "blog-post-format">
+                    {% if diarys.has_prev %}
+                    <span><a href="{{url_for('diary_api.diary_view',page=diarys.prev_num)}}">上一页</a></span>
+                    {% endif %}
+                    {% for post in diarys.iter_pages(left_edge=1,left_current=2,right_current=2,right_edge=1) %}
+                    {% if post==None %}
+                    <span>...</span>
+                    {% else %}
+                    <span><a href="{{url_for('diary_api.diary_view',page=post)}}">{{post}}</a></span>
+                    {% endif %}
+                    {% endfor %}
+                    {% if diarys.has_next %}
+                    <span><a href="{{url_for('diary_api.diary_view',page=diarys.next_num)}}">下一页</a></span>
+                    {% endif %}
+               </div>
+               <span>当前页:{{diarys.page}}</span>
+          </div>
+     </div>
+</section>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block ck %}
+{{ ckeditor.load() }}
+{% endblock %}
+<!-- Contact Section -->
+{% block portfolio %}
+<section id="contact">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="section-title">
+                         <h3>联系</h3>
+                         <h2>您可以在这里和我取得联系，期待您的宝贵意见</h2>
+                    </div>
+                    {% from 'contact_formhelper.html' import render_field %}
+                    <form action="/contact" method="post">
+                        {{ form.csrf_token }}
+                        {{render_field(form.name)}}
+                        {{ form.email_body }}
+                        {% if form.email_body.errors %}
+                            {% for error in form.email_body.errors %}
+                                {{ error }}<br>
+                            {% endfor %}
+                        {% endif %}
+                        <div class="col-md-3 col-sm-4">
+                            <input type="submit" class="form-control" value="Send Message">
+                        </div>
+                    </form>
+               </div>
+
+          </div>
+     </div>
+</section>
+{% endblock %}
