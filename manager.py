@@ -14,7 +14,7 @@ manager.add_command("server", Server())
 @manager.command
 def init_db():
     db.create_all()
-    user = User(name='KoiCarrot', email='402704088@qq.com', password='SmileGirl@123')
+    user = User(name='KoiCarrot', email='xxx', password='xxx')
     db.session.add(user)
     db.session.commit()
 
