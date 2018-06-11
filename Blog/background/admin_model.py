@@ -15,7 +15,6 @@ class Flask_Blog_ModelView(ModelView):
 class Blog_view(Flask_Blog_ModelView):
     can_create = False
 
-
 class Edit_view(BaseView):
     @expose('/',methods=['GET','POST'])
     def index(self):
